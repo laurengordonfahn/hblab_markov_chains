@@ -26,12 +26,17 @@ def make_chains(text_string):
         {('hi', 'there'): ['mary', 'juanita'], ('there', 'mary'): ['hi'], ('mary', 'hi': ['there']}
     """
     text_list = text_string.split()
-    print text_list
 
     chains = {}
 
+    text_len = len(text_list)
+    for word_index in range(text_len -1 ):
+        bi_gram = (text_list[word_index], text_list[word_index +1])
+        if word_index + 2 < text_len:
+            chains.setdefault(bi_gram, []).append(text_list[word_index + 2])
+        else:
+            chains.setdefault(bi_gram, [None])
 
-    # your code goes here
 
     return chains
 
@@ -53,6 +58,7 @@ input_text = open_and_read_file(input_path)
 # print input_text
 # # Get a Markov chain
 chains = make_chains(input_text)
+print chains
 
 # # Produce random text
 # random_text = make_text(chains)
