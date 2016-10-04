@@ -8,9 +8,9 @@ def open_and_read_file(file_path):
     the file's contents as one string of text.
     """
 
-    # your code goes here
+    full_text = open(file_path).read()
 
-    return "This should be a variable that contains your file text as one long string"
+    return full_text
 
 
 def make_chains(text_string):
@@ -25,8 +25,11 @@ def make_chains(text_string):
         >>> make_chains("hi there mary hi there juanita")
         {('hi', 'there'): ['mary', 'juanita'], ('there', 'mary'): ['hi'], ('mary', 'hi': ['there']}
     """
+    text_list = text_string.split()
+    print text_list
 
     chains = {}
+
 
     # your code goes here
 
@@ -47,11 +50,12 @@ input_path = "green-eggs.txt"
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
-
-# Get a Markov chain
+# print input_text
+# # Get a Markov chain
 chains = make_chains(input_text)
 
-# Produce random text
-random_text = make_text(chains)
+# # Produce random text
+# random_text = make_text(chains)
 
-print random_text
+# print random_text
+
