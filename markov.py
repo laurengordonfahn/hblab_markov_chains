@@ -107,12 +107,12 @@ def make_chains(text_string, n):
     chains = {}
 
     text_len = len(text_list)
-    for word_index in range(text_len -1 ):
+    for word_index in range((text_len - n) + 1):
         n_gram = []
         for n_index in range(n):
             n_gram.append(text_list[word_index + n_index])
         n_gram = tuple(n_gram)
-        if word_index + (n - 1) < text_len:
+        if word_index + (n - 1) < text_len - 1:
             chains.setdefault(n_gram, []).append(text_list[word_index + n])
         else:
             chains.setdefault(n_gram, [None])
