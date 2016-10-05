@@ -47,8 +47,11 @@ def make_text(chains):
     random_key = choice(keys_list)
 
     text_list = []
-
     text_list.extend([random_key[0], random_key[1]])
+
+    random_list_value = choice(chains[random_key])
+
+    print random_list_value
 
 
     # your code goes here
